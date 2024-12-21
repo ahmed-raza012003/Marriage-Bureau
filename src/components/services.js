@@ -167,7 +167,7 @@ const Services = () => {
           <Typography variant="body1" sx={{ lineHeight: "1.8", display: "flex", alignItems: "flex-start", textAlign: "left" }}>
             <span style={{ fontSize: "20px", marginRight: "10px" }}>•</span>
             <span>
-              <strong>Personalized Matchmaking:</strong> Only our Personalized Matchmaking service (Premium Matrimonial) is a Paid service in which we charge fees. Paid Premium Matrimonial service is for those who are Busy Professionals OR looking for very Good Verified Proposals OR want to Meet Families Directly OR want Abroad/Foreign Proposals OR are Highly Qualified and looking for same proposals OR have some Special/Specific Requirements OR looking for Quick Rishta OR want to meet only genuine proposals OR want to save their time and want to Get Married Soon.
+              <strong>Personalized Matchmaking:</strong> Only our Personalized Matchmaking service (Premium Matrimonial) is a Paid service in which we charge fees. Paid Premium Matrimonial service is for those who are Busy Professionals or looking for very Good Verified Proposals or want to Meet Families Directly or want Abroad/Foreign Proposals or are Highly Qualified and looking for same proposals or have some Special/Specific Requirements or looking for Quick Rishta or want to meet only genuine proposals or want to save their time and want to Get Married Soon.
             </span>
           </Typography>
           <Typography variant="body1" sx={{ lineHeight: "1.8", display: "flex", alignItems: "flex-start", textAlign: "left" }}>
