@@ -1,23 +1,22 @@
 import React from "react";
 import { Box, Card, CardContent, CardMedia, Typography, Grid } from "@mui/material";
 
-// Array for services data
 const servicesData = [
   {
     title: "Registration and Profile Creation",
-    image: "/register.jpg", // Image for the first service
+    image: "/register.jpg",
   },
   {
     title: "Online Profile Management",
-    image: "/profile-management.jpg", // Image for the second service
+    image: "/profile-management.jpg",
   },
   {
     title: "Counseling and Guidance",
-    image: "/guidance.jpg", // Image for the third service
+    image: "/guidance.jpg",
   },
   {
     title: "Personalized Matchmaking",
-    image: "/matchmaking.jpg", // Image for the fourth service
+    image: "/matchmaking.jpg",
   },
 ];
 
@@ -26,21 +25,19 @@ const Services = () => {
     <Box
       sx={{
         padding: 3,
-        textAlign: "center", // Center align heading
+        textAlign: "center",
       }}
     >
-      {/* Services heading */}
       <Typography
         variant="h4"
         sx={{
           fontWeight: "bold",
-          marginBottom: "30px", // Adds space below the heading
+          marginBottom: "30px",
         }}
       >
         Our Services
       </Typography>
 
-      {/* Services Cards */}
       <Box
         sx={{
           display: "flex",
@@ -65,7 +62,7 @@ const Services = () => {
             <CardMedia
               component="img"
               height="140"
-              image={service.image} // Use the image from the service data
+              image={service.image}
               alt={`Service ${index + 1}`}
             />
             <CardContent>
@@ -81,7 +78,7 @@ const Services = () => {
         ))}
       </Box>
 
-      {/* Container for Free and Paid Services */}
+   
       <Box
         sx={{
           display: "flex",
@@ -89,11 +86,11 @@ const Services = () => {
           marginTop: "40px",
         }}
       >
-        {/* Free Rishta Services Section */}
+  
         <Box
           sx={{
-            width: "48%", // Adjust the width to display in columns
-            paddingRight: "10px", // Right padding for space between the columns
+            width: "48%", 
+            paddingRight: "10px",
           }}
         >
           <Typography
@@ -101,13 +98,13 @@ const Services = () => {
             sx={{
               fontWeight: "bold",
               marginBottom: "20px",
-              color: "#800000", // Mehroon color for the heading
+              color: "#800000",
             }}
           >
             Free Rishta Matrimony Services
           </Typography>
 
-          {/* Free Services Details */}
+ 
           <Typography variant="body1" sx={{ lineHeight: "1.8", display: "flex", alignItems: "flex-start", textAlign: "left" }}>
             <span style={{ fontSize: "20px", marginRight: "10px" }}>•</span>
             <span>
@@ -140,20 +137,19 @@ const Services = () => {
           </Typography>
         </Box>
 
-        {/* Line separator */}
+   
         <Box
           sx={{
             width: "1px",
-            backgroundColor: "#ddd", // Light gray color for the line
+            backgroundColor: "#ddd",
             margin: "0 20px",
           }}
         />
 
-        {/* Paid Rishta Services Section */}
         <Box
           sx={{
-            width: "48%", // Adjust the width to display in columns
-            paddingLeft: "10px", // Left padding for space between the columns
+            width: "48%", 
+            paddingLeft: "10px", 
           }}
         >
           <Typography
@@ -161,13 +157,13 @@ const Services = () => {
             sx={{
               fontWeight: "bold",
               marginBottom: "20px",
-              color: "#800000", // Mehroon color for the heading
+              color: "#800000",
             }}
           >
             Paid Rishta Matrimony Services
           </Typography>
 
-          {/* Paid Services Details */}
+
           <Typography variant="body1" sx={{ lineHeight: "1.8", display: "flex", alignItems: "flex-start", textAlign: "left" }}>
             <span style={{ fontSize: "20px", marginRight: "10px" }}>•</span>
             <span>
