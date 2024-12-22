@@ -33,6 +33,7 @@ const Services = () => {
         sx={{
           fontWeight: "bold",
           marginBottom: "30px",
+          cursor: "pointer",
         }}
       >
         Our Services
@@ -69,7 +70,7 @@ const Services = () => {
               <Typography
                 variant="h6"
                 component="div"
-                sx={{ fontWeight: "bold", textAlign: "center" }}
+                sx={{ fontWeight: "bold", textAlign: "center", color:"#800000" }}
               >
                 {service.title}
               </Typography>

@@ -16,8 +16,7 @@ const About = () => {
             sx={{
               fontWeight: "bold",
               cursor: "pointer",
-              "&:hover": { textDecoration: "underline" },
-              color: "inherit" 
+              color: "inherit" ,
             }}
             component="a"
             href="#about-section"

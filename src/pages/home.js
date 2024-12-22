@@ -11,19 +11,16 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { keyframes } from "@mui/system";
 import About from "../components/about";
 import Services from "../components/services";
-
-// Animation for text and image
+import Packages from "../components/pakages";
+import SuccessStories from "../components/success-stories";
 const fadeInLeft = keyframes`
   0% { opacity: 0; transform: translateX(-20px); }
   100% { opacity: 1; transform: translateX(0); }
 `;
-
 const fadeInRight = keyframes`
   0% { opacity: 0; transform: translateX(20px); }
   100% { opacity: 1; transform: translateX(0); }
 `;
-
-// Typing animation
 const typingAnimation = keyframes`
   0% {
     width: 0;
@@ -32,7 +29,6 @@ const typingAnimation = keyframes`
     width: 100%;
   }
 `;
-
 const Home = () => {
   return (
     <Box sx={{ fontFamily: "Arial, sans-serif", color: "#800000" }}>
@@ -124,7 +120,6 @@ const Home = () => {
           </Box>
         </Toolbar>
       </AppBar>
-
       <Box
         sx={{
           display: "flex",
@@ -257,6 +252,8 @@ const Home = () => {
       </Box>
       <About />
       <Services/>
+      <Packages/>
+      <SuccessStories/>
     </Box>
   );
 };
