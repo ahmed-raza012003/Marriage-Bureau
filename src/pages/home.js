@@ -13,28 +13,56 @@ import About from "../components/about";
 import Services from "../components/services";
 import Packages from "../components/pakages";
 import SuccessStories from "../components/success-stories";
+import FAQPage from "../components/faq";
+import ContactScreen from "../components/contactus";
+
+// Keyframe Animations
 const fadeInLeft = keyframes`
   0% { opacity: 0; transform: translateX(-20px); }
   100% { opacity: 1; transform: translateX(0); }
 `;
+
 const fadeInRight = keyframes`
   0% { opacity: 0; transform: translateX(20px); }
   100% { opacity: 1; transform: translateX(0); }
 `;
+
 const typingAnimation = keyframes`
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
+  0% { width: 0; }
+  100% { width: 100%; }
 `;
+
 const Home = () => {
   return (
-    <Box sx={{ fontFamily: "Arial, sans-serif", color: "#800000" }}>
+    <Box
+      sx={{
+        fontFamily: "Arial, sans-serif",
+        color: "#800000",
+        background: "linear-gradient(135deg, #ff7b7b, #f8c6c6)", // Animated Gradient Background
+        minHeight: "100vh", // Full-screen height
+        paddingTop: "64px", // Ensure the content is not hidden under the sticky header
+        position: "relative",
+      }}
+    >
+      {/* Background Overlays and Parallax Effect */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          background: "url('/background-image.jpg') no-repeat center center fixed",
+          backgroundSize: "cover",
+          filter: "blur(8px)", // Blur effect for background image
+          zIndex: -1, // Keep the background behind the content
+        }}
+      />
+
+      {/* Header */}
       <AppBar
-        position="static"
-        sx={{ backgroundColor: "#800000", padding: "10px 20px" }}
+        position="fixed"
+        sx={{ backgroundColor: "#800000", padding: "10px 20px", zIndex: 10 }}
       >
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -43,10 +71,7 @@ const Home = () => {
               alt="Logo"
               style={{ width: "60px", marginRight: "10px" }}
             />
-            <Typography
-              variant="h6"
-              sx={{ fontWeight: "bold", cursor: "pointer" }}
-            >
+            <Typography variant="h6" sx={{ fontWeight: "bold", cursor: "pointer" }}>
               Happy Nikah
             </Typography>
           </Box>
@@ -120,6 +145,8 @@ const Home = () => {
           </Box>
         </Toolbar>
       </AppBar>
+
+      {/* Main Content */}
       <Box
         sx={{
           display: "flex",
@@ -127,13 +154,19 @@ const Home = () => {
           alignItems: "flex-start",
           padding: "40px",
           marginTop: "60px",
+          position: "relative",
         }}
       >
+        {/* Left Side Text */}
         <Box
           sx={{
             width: "45%",
             marginTop: "30px",
             animation: `${fadeInLeft} 1.5s ease-out`,
+            backgroundColor: "rgba(255, 255, 255, 0.8)", // Semi-transparent background
+            borderRadius: "10px",
+            padding: "20px",
+            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)", // Box shadow for depth
           }}
         >
           <Typography
@@ -153,9 +186,7 @@ const Home = () => {
             variant="body1"
             sx={{ marginBottom: "20px", lineHeight: "1.6" }}
           >
-            Welcome to Happy Nikah Organization Pakistan, your trusted partner
-            in finding your perfect match. Our mission is to provide a secure,
-            personalized, and hassle-free matchmaking experience.
+            Welcome to Happy Nikah Organization Pakistan, your trusted partner in finding your perfect match. Our mission is to provide a secure, personalized, and hassle-free matchmaking experience.
           </Typography>
           <Typography
             variant="body2"
@@ -163,13 +194,7 @@ const Home = () => {
           >
             Register Now and Start Your Journey
           </Typography>
-          <Box
-            sx={{
-              display: "flex",
-              gap: "10px",
-              justifyContent: "center",
-            }}
-          >
+          <Box sx={{ display: "flex", gap: "10px", justifyContent: "center" }}>
             <Button
               variant="contained"
               sx={{
@@ -192,6 +217,7 @@ const Home = () => {
           </Box>
         </Box>
 
+        {/* Right Side Image */}
         <Box
           sx={{
             width: "45%",
@@ -204,8 +230,7 @@ const Home = () => {
             variant="body1"
             sx={{ fontWeight: "bold", marginBottom: "20px" }}
           >
-            Your Path to a Blessed Union Connecting Hearts, Building Families
-            Trusted Marriage Bureau for Muslims.
+            Your Path to a Blessed Union Connecting Hearts, Building Families Trusted Marriage Bureau for Muslims.
           </Typography>
           <Box
             sx={{
@@ -228,13 +253,7 @@ const Home = () => {
             />
           </Box>
 
-          <Box
-            sx={{
-              marginTop: "20px",
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
+          <Box sx={{ marginTop: "20px", display: "flex", justifyContent: "center" }}>
             <Button
               variant="contained"
               sx={{
@@ -250,10 +269,14 @@ const Home = () => {
           </Box>
         </Box>
       </Box>
+
+      {/* Additional Sections */}
       <About />
-      <Services/>
-      <Packages/>
-      <SuccessStories/>
+      <Services />
+      <Packages />
+      <SuccessStories />
+      <FAQPage />
+      <ContactScreen />
     </Box>
   );
 };
