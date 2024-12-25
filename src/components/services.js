@@ -54,6 +54,7 @@ const Services = () => {
               width: 300,
               boxShadow: 3,
               borderRadius: "10px",
+              backgroundColor: "#f7b6b0 ",
               transition: "transform 0.3s ease-in-out",
               "&:hover": {
                 transform: "scale(1.05)",

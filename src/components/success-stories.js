@@ -10,6 +10,7 @@ import {
   Divider,
 } from "@mui/material";
 import { motion } from "framer-motion";
+
 const stories = [
   {
     image: "ayeshaahmad.jpg",
@@ -66,7 +67,6 @@ const SuccessStories = () => {
         </Typography>
       </motion.div>
 
- 
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -79,19 +79,23 @@ const SuccessStories = () => {
                 sx={{
                   boxShadow: 3,
                   borderRadius: "15px",
+                  backgroundColor: "#f7b6b0",
                   transition: "transform 0.3s ease-in-out",
                   "&:hover": {
                     transform: "scale(1.05)",
                   },
+                  width: "100%",  // Ensuring all cards are the same width
+                  height: "400px",  // Fixed height for all cards
                 }}
               >
                 <CardMedia
                   component="img"
-                  height="180"
+                  height="150"
                   image={story.image}
                   alt={story.title}
+                  sx={{ objectFit: "cover" }}  // Ensure images fit properly without stretching
                 />
-                <CardContent>
+                <CardContent sx={{ height: "calc(100% - 150px)" }}>
                   <Typography
                     variant="h6"
                     sx={{

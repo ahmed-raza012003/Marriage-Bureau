@@ -37,7 +37,9 @@ const Packages = () => {
         transition={{ duration: 1, delay: 0.5 }}
       >
         <TableContainer component={Paper} elevation={4} sx={{ maxWidth: "90%", margin: "auto", borderRadius: "10px" }}>
-          <Table>
+          <Table sx={{
+            backgroundColor: "#f7b6b0 ",
+          }}>
             <TableHead>
               <TableRow>
                 {columns.map((col, index) => (

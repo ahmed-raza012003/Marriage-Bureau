@@ -71,7 +71,8 @@ const FAQPage = () => {
       <Box
         sx={{
           maxWidth: "700px", // Width for FAQ section
-          margin: "auto", // Center horizontally
+          margin: "auto",
+          borderRadius: 8, // Center horizontally
         }}
       >
         {faqData.map((faq, index) => (
@@ -82,7 +83,7 @@ const FAQPage = () => {
             sx={{
               marginBottom: 2,
               boxShadow: 3,
-              borderRadius: 2,
+              borderRadius: 2, 
               "&:hover": {
                 backgroundColor: "#f9f9f9",
               },
@@ -93,15 +94,23 @@ const FAQPage = () => {
               sx={{
                 backgroundColor: "maroon",
                 color: "white",
-                borderRadius: "10px", // Added border radius to the question headers
+                borderRadius: "4px", 
                 "&:hover": {
                   backgroundColor: "#a83232",
                 },
+                
+                backgroundColor: "maroon",
+                borderRadius: "4px",
               }}
             >
               <Typography sx={{ fontWeight: "bold" }}>{faq.question}</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails
+              sx={{
+                borderRadius: "8px",
+                backgroundColor: "#f9f9f9",
+              }}
+            >
               <Typography>{faq.answer}</Typography>
             </AccordionDetails>
           </Accordion>

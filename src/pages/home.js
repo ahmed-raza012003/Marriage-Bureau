@@ -16,7 +16,6 @@ import SuccessStories from "../components/success-stories";
 import FAQPage from "../components/faq";
 import ContactScreen from "../components/contactus";
 
-// Keyframe Animations
 const fadeInLeft = keyframes`
   0% { opacity: 0; transform: translateX(-20px); }
   100% { opacity: 1; transform: translateX(0); }
@@ -27,24 +26,19 @@ const fadeInRight = keyframes`
   100% { opacity: 1; transform: translateX(0); }
 `;
 
-const typingAnimation = keyframes`
-  0% { width: 0; }
-  100% { width: 100%; }
-`;
-
 const Home = () => {
   return (
     <Box
       sx={{
         fontFamily: "Arial, sans-serif",
         color: "#800000",
-        background: "linear-gradient(135deg, #ff7b7b, #f8c6c6)", // Animated Gradient Background
-        minHeight: "100vh", // Full-screen height
-        paddingTop: "64px", // Ensure the content is not hidden under the sticky header
+        background: "linear-gradient(135deg, #f8d7da, #f8d7da)", 
+        minHeight: "100vh",
+        paddingTop: "64px",
         position: "relative",
       }}
     >
-      {/* Background Overlays and Parallax Effect */}
+
       <Box
         sx={{
           position: "absolute",
@@ -54,90 +48,76 @@ const Home = () => {
           height: "100%",
           background: "url('/background-image.jpg') no-repeat center center fixed",
           backgroundSize: "cover",
-          filter: "blur(8px)", // Blur effect for background image
-          zIndex: -1, // Keep the background behind the content
+          filter: "blur(8px)",
+          zIndex: -1,
         }}
       />
 
-      {/* Header */}
-      <AppBar
-        position="fixed"
-        sx={{ backgroundColor: "#800000", padding: "10px 20px", zIndex: 10 }}
-      >
+      <AppBar position="fixed" sx={{ backgroundColor: "#800000", zIndex: 10 }}>
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <img
               src="main-logo.jpeg"
               alt="Logo"
-              style={{ width: "60px", marginRight: "10px" }}
+              style={{ width: "50px", marginRight: "10px" }}
             />
             <Typography variant="h6" sx={{ fontWeight: "bold", cursor: "pointer" }}>
               Happy Nikah
             </Typography>
           </Box>
 
-          <Typography
-            variant="h6"
-            sx={{ fontWeight: "bold", textAlign: "center", cursor: "pointer" }}
-          >
-            Home
-          </Typography>
+          <Box sx={{ display: "flex", gap: "20px" }}>
+            {["Home", "About", "Services", "Packages", "Stories", "FAQ", "Contact"].map(
+              (link) => (
+                <Button
+                  key={link}
+                  color="inherit"
+                  sx={{
+                    fontWeight: "bold",
+                    position: "relative",
+                    "&:hover": {
+                      "&::after": {
+                        content: '""',
+                        position: "absolute",
+                        left: 0,
+                        bottom: -4,
+                        width: "100%",
+                        height: "2px",
+                        backgroundColor: "white",
+                      },
+                    },
+                  }}
+                  onClick={() => {
+                    const section = document.getElementById(
+                      link === "Home" ? "home-top" : link.toLowerCase()
+                    );
+                    if (section) {
+                      section.scrollIntoView({
+                        behavior: "smooth",
+                      });
+                    }
+                  }}
+                >
+                  {link}
+                </Button>
+              )
+            )}
+          </Box>
 
-          <Box sx={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            <Button
-              color="inherit"
-              sx={{
-                fontWeight: "bold",
-                position: "relative",
-                "&:hover .underline": {
-                  transform: "scaleX(1)",
-                },
-              }}
-            >
+          <Box sx={{ display: "flex", gap: "10px" }}>
+            <Button color="inherit" sx={{ fontWeight: "bold" }}>
               Login
-              <Box
-                className="underline"
-                sx={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: "2px",
-                  backgroundColor: "white",
-                  transform: "scaleX(0)",
-                  transformOrigin: "bottom right",
-                  transition: "transform 0.3s ease",
-                }}
-              />
             </Button>
             <Button
               variant="outlined"
               sx={{
+                borderColor: "white",
                 color: "white",
-                border: "1px solid white",
-                padding: "5px 15px",
                 fontWeight: "bold",
-                position: "relative",
-                "&:hover .underline": {
-                  transform: "scaleX(1)",
-                },
+                "&:hover": { backgroundColor: "#ffe6e6" },
               }}
             >
               Register
-              <Box
-                className="underline"
-                sx={{
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: "2px",
-                  backgroundColor: "white",
-                  transform: "scaleX(0)",
-                  transformOrigin: "bottom right",
-                  transition: "transform 0.3s ease",
-                }}
-              />
             </Button>
             <IconButton color="inherit">
               <MenuIcon />
@@ -146,55 +126,41 @@ const Home = () => {
         </Toolbar>
       </AppBar>
 
-      {/* Main Content */}
+  
       <Box
+        id="home-top"
         sx={{
           display: "flex",
           justifyContent: "space-between",
-          alignItems: "flex-start",
+          alignItems: "center",
           padding: "40px",
-          marginTop: "60px",
-          position: "relative",
+          marginTop: "80px",
         }}
       >
-        {/* Left Side Text */}
+
         <Box
           sx={{
             width: "45%",
-            marginTop: "30px",
+            height: "350px",
             animation: `${fadeInLeft} 1.5s ease-out`,
-            backgroundColor: "rgba(255, 255, 255, 0.8)", // Semi-transparent background
+            backgroundColor: "rgba(255, 255, 255, 0.8)",
             borderRadius: "10px",
             padding: "20px",
-            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)", // Box shadow for depth
+            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center", 
           }}
         >
-          <Typography
-            variant="h4"
-            sx={{
-              fontWeight: "bold",
-              marginBottom: "20px",
-              whiteSpace: "nowrap",
-              overflow: "hidden",
-              borderRight: "3px solid #800000",
-              animation: `${typingAnimation} 3s steps(40) 1s forwards`,
-            }}
-          >
+          <Typography variant="h4" sx={{ fontWeight: "bold", marginBottom: "20px" }}>
             Find Your Perfect Match Today
           </Typography>
-          <Typography
-            variant="body1"
-            sx={{ marginBottom: "20px", lineHeight: "1.6" }}
-          >
+          <Typography variant="body1" sx={{ lineHeight: "1.6", marginBottom: "20px" }}>
             Welcome to Happy Nikah Organization Pakistan, your trusted partner in finding your perfect match. Our mission is to provide a secure, personalized, and hassle-free matchmaking experience.
           </Typography>
-          <Typography
-            variant="body2"
-            sx={{ fontWeight: "bold", marginBottom: "20px" }}
-          >
-            Register Now and Start Your Journey
-          </Typography>
-          <Box sx={{ display: "flex", gap: "10px", justifyContent: "center" }}>
+          <Box sx={{ display: "flex", gap: "10px", marginTop: "20px" }}>
             <Button
               variant="contained"
               sx={{
@@ -217,66 +183,49 @@ const Home = () => {
           </Box>
         </Box>
 
-        {/* Right Side Image */}
+
         <Box
           sx={{
             width: "45%",
+            height: "400px",
             textAlign: "center",
-            position: "relative",
             animation: `${fadeInRight} 1.5s ease-out`,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center", 
           }}
         >
-          <Typography
-            variant="body1"
-            sx={{ fontWeight: "bold", marginBottom: "20px" }}
-          >
-            Your Path to a Blessed Union Connecting Hearts, Building Families Trusted Marriage Bureau for Muslims.
-          </Typography>
-          <Box
-            sx={{
-              width: "100%",
-              height: "300px",
+          <img
+            src="/img1.jpg"
+            alt="Logo"
+            style={{
+              maxWidth: "100%",
+              maxHeight: "100%",
               borderRadius: "10px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
+              boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
             }}
-          >
-            <img
-              src="/img1.jpg"
-              alt="Logo"
-              style={{
-                maxWidth: "100%",
-                maxHeight: "100%",
-                borderRadius: "8px",
-              }}
-            />
-          </Box>
-
-          <Box sx={{ marginTop: "20px", display: "flex", justifyContent: "center" }}>
-            <Button
-              variant="contained"
-              sx={{
-                backgroundColor: "#ffe6e6",
-                color: "white",
-                width: "60px",
-                height: "60px",
-                borderRadius: "50%",
-                fontSize: "16px",
-                "&:hover": { backgroundColor: "#ffe6e6" },
-              }}
-            ></Button>
-          </Box>
+          />
         </Box>
       </Box>
 
-      {/* Additional Sections */}
-      <About />
-      <Services />
-      <Packages />
-      <SuccessStories />
-      <FAQPage />
-      <ContactScreen />
+      <Box id="about">
+        <About />
+      </Box>
+      <Box id="services">
+        <Services />
+      </Box>
+      <Box id="packages">
+        <Packages />
+      </Box>
+      <Box id="stories">
+        <SuccessStories />
+      </Box>
+      <Box id="faq">
+        <FAQPage />
+      </Box>
+      <Box id="contact">
+        <ContactScreen />
+      </Box>
     </Box>
   );
 };
