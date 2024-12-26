@@ -15,6 +15,8 @@ import Packages from "../components/pakages";
 import SuccessStories from "../components/success-stories";
 import FAQPage from "../components/faq";
 import ContactScreen from "../components/contactus";
+import { Navigate, useNavigate } from "react-router-dom";
+import RegistrationForm from "../components/registrationform";
 
 const fadeInLeft = keyframes`
   0% { opacity: 0; transform: translateX(-20px); }
@@ -27,18 +29,19 @@ const fadeInRight = keyframes`
 `;
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
         fontFamily: "Arial, sans-serif",
         color: "#800000",
-        background: "linear-gradient(135deg, #f8d7da, #f8d7da)", 
+        background: "linear-gradient(135deg, #f8d7da, #f8d7da)",
         minHeight: "100vh",
         paddingTop: "64px",
         position: "relative",
       }}
     >
-
       <Box
         sx={{
           position: "absolute",
@@ -46,7 +49,8 @@ const Home = () => {
           left: 0,
           width: "100%",
           height: "100%",
-          background: "url('/background-image.jpg') no-repeat center center fixed",
+          background:
+            "url('/background-image.jpg') no-repeat center center fixed",
           backgroundSize: "cover",
           filter: "blur(8px)",
           zIndex: -1,
@@ -61,47 +65,56 @@ const Home = () => {
               alt="Logo"
               style={{ width: "50px", marginRight: "10px" }}
             />
-            <Typography variant="h6" sx={{ fontWeight: "bold", cursor: "pointer" }}>
+            <Typography
+              variant="h6"
+              sx={{ fontWeight: "bold", cursor: "pointer" }}
+            >
               Happy Nikah
             </Typography>
           </Box>
 
           <Box sx={{ display: "flex", gap: "20px" }}>
-            {["Home", "About", "Services", "Packages", "Stories", "FAQ", "Contact"].map(
-              (link) => (
-                <Button
-                  key={link}
-                  color="inherit"
-                  sx={{
-                    fontWeight: "bold",
-                    position: "relative",
-                    "&:hover": {
-                      "&::after": {
-                        content: '""',
-                        position: "absolute",
-                        left: 0,
-                        bottom: -4,
-                        width: "100%",
-                        height: "2px",
-                        backgroundColor: "white",
-                      },
+            {[
+              "Home",
+              "About",
+              "Services",
+              "Packages",
+              "Stories",
+              "FAQ",
+              "Contact",
+            ].map((link) => (
+              <Button
+                key={link}
+                color="inherit"
+                sx={{
+                  fontWeight: "bold",
+                  position: "relative",
+                  "&:hover": {
+                    "&::after": {
+                      content: '""',
+                      position: "absolute",
+                      left: 0,
+                      bottom: -4,
+                      width: "100%",
+                      height: "2px",
+                      backgroundColor: "white",
                     },
-                  }}
-                  onClick={() => {
-                    const section = document.getElementById(
-                      link === "Home" ? "home-top" : link.toLowerCase()
-                    );
-                    if (section) {
-                      section.scrollIntoView({
-                        behavior: "smooth",
-                      });
-                    }
-                  }}
-                >
-                  {link}
-                </Button>
-              )
-            )}
+                  },
+                }}
+                onClick={() => {
+                  const section = document.getElementById(
+                    link === "Home" ? "home-top" : link.toLowerCase()
+                  );
+                  if (section) {
+                    section.scrollIntoView({
+                      behavior: "smooth",
+                    });
+                  }
+                }}
+              >
+                {link}
+              </Button>
+            ))}
           </Box>
 
           <Box sx={{ display: "flex", gap: "10px" }}>
@@ -116,9 +129,11 @@ const Home = () => {
                 fontWeight: "bold",
                 "&:hover": { backgroundColor: "#ffe6e6" },
               }}
+              onClick={() => navigate("RegistrationForm")}
             >
               Register
             </Button>
+
             <IconButton color="inherit">
               <MenuIcon />
             </IconButton>
@@ -126,7 +141,6 @@ const Home = () => {
         </Toolbar>
       </AppBar>
 
-  
       <Box
         id="home-top"
         sx={{
@@ -137,7 +151,6 @@ const Home = () => {
           marginTop: "80px",
         }}
       >
-
         <Box
           sx={{
             width: "45%",
@@ -151,14 +164,22 @@ const Home = () => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            textAlign: "center", 
+            textAlign: "center",
           }}
         >
-          <Typography variant="h4" sx={{ fontWeight: "bold", marginBottom: "20px" }}>
+          <Typography
+            variant="h4"
+            sx={{ fontWeight: "bold", marginBottom: "20px" }}
+          >
             Find Your Perfect Match Today
           </Typography>
-          <Typography variant="body1" sx={{ lineHeight: "1.6", marginBottom: "20px" }}>
-            Welcome to Happy Nikah Organization Pakistan, your trusted partner in finding your perfect match. Our mission is to provide a secure, personalized, and hassle-free matchmaking experience.
+          <Typography
+            variant="body1"
+            sx={{ lineHeight: "1.6", marginBottom: "20px" }}
+          >
+            Welcome to Happy Nikah Organization Pakistan, your trusted partner
+            in finding your perfect match. Our mission is to provide a secure,
+            personalized, and hassle-free matchmaking experience.
           </Typography>
           <Box sx={{ display: "flex", gap: "10px", marginTop: "20px" }}>
             <Button
@@ -183,7 +204,6 @@ const Home = () => {
           </Box>
         </Box>
 
-
         <Box
           sx={{
             width: "45%",
@@ -192,7 +212,7 @@ const Home = () => {
             animation: `${fadeInRight} 1.5s ease-out`,
             display: "flex",
             justifyContent: "center",
-            alignItems: "center", 
+            alignItems: "center",
           }}
         >
           <img

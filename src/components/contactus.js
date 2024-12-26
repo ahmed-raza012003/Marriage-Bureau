@@ -47,7 +47,7 @@ const ContactScreen = () => {
         >
           <Box
             component="img"
-            src="https://via.placeholder.com/150"
+            src="prifilepicture.jpg"
             alt="Profile"
             sx={{
               width: "240px",
